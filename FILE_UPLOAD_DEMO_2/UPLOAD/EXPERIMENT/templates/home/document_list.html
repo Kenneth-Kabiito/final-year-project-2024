@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Document List</title>
+
+</head>
+<body>
+    <ul>
+	   {% for document in documents %}
+     <li>
+     	{{% document.file.name %}}
+     	({{ document.description }})
+     </li>
+     {% endfor %}
+    </ul>
+</body>
+</html>
