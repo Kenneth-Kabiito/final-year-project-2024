@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - DocVerify</title>
+    <style type="text/css">
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d9e2ec;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #191970;
+    height: 16vh;
+    padding: 0 20px;
+    color: white;
+}
+
+.navbar .logo h1 {
+    margin: 0;
+}
+
+.navbar .utility-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar .utility-links a:hover {
+    text-decoration: underline;
+}
+
+.large{
+    font-size: 4em;
+}
+
+.large1 {
+    max-width: 1500px
+}
+
+.large1 h2{
+    font-size: 5em;
+}
+
+.intro-text h2 {
+    font-size: 2.5em; /* Example font size for h2 */
+    margin-bottom: 10px; /* Example margin bottom for spacing */
+}
+
+
+.content-container {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210803/pngtree-modern-simple-elegant-abstract-white-background-image_756928.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto; /* Enable vertical scroll if content exceeds container height */
+    height: 64vh; /* Set height to fill remaining viewport after navbar */
+    padding-top: 20px; /* Add padding to top */
+    padding-bottom: 20px;  /*Add padding to bottom */
+    display: flex;
+    justify-content: center; /* Center content horizontally*/ 
+    align-items: center; /* Center content vertically */
+}
+
+.content {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Fallback color for transparency */
+    padding: 20px;
+    text-align: center;
+    color: #333; /* Text color on top of background image */
+}
+
+.footer {
+    background-color: #191970;
+    height: 16vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.about-text {
+
+}
+
+.login-form {
+    max-width: 400px; /* Example max width for the form */
+    width: 250%; /* Set a percentage width to center the form and maintain responsiveness */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example shadow effect */
+    margin-left: 20px;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #6a1b9a; /* Darker shade of purple on hover */
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forgot-password a {
+    color: purple;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>DocVerify</h1>
+        </div>
+        <nav class="utility-links">
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'index' %}">Home</a>
+        </nav>
+    </header>
+    
+    <div class="content-container">
+        <main class="content">
+            <h1>Login</h1>
+            <div class="login-form">
+                <form method="POST" action="{% url 'login' %}">
+                 {% csrf_token %}
+                 {{ form.non_field_errors }}
+                   <div class="label1">
+                     <label for="{{ form.username.id_for_label }}">Username</label>
+                   {{ form.username }}
+                  </div>
+                   <div class="label1">
+                      <label for="{{ form.password.id_for_label }}">Password</label>
+                   {{ form.password }}
+                  </div>
+
+                    <button type="submit">Login</button>
+                </form>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 DocVerify. All rights reserved. | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a> Student Document Verification
+        </p>
+    </footer>
+</body>
+</html>
