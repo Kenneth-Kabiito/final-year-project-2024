@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Uploaded File</title>
+</head>
+<body>
+     <h1>Uploaded File</h1>
+    {% if uploaded_file %}
+        <p>Title: {{ uploaded_file.title }}</p>
+        <p>You can download the file <a href="{{ uploaded_file.file.url }}">here</a>.</p>
+    {% else %}
+        <p>Error: File not found.</p>
+    {% endif %}
+</body>
+</html>

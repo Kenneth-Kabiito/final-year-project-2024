@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Success</title>
+    <style>
+        .spinner {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top-color: #3498db;
+            animation: spin 1s linear infinite;
+            -webkit-animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            font-size: 18px;
+            margin-top: 10px;
+            text-align: center;
+        }
+         
+        /* Centering styles */
+        body {
+            display: flex; /* Allow centering elements */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh; /* Set minimum viewport height */
+        }
+
+        .container {
+            text-align: center; /* Center text within container (optional) */
+        }
+    </style>
+</head>
+<body>
+    <h1>File Uploaded Successfully!</h1>
+    <p>You will be redirected to view the uploaded file shortly.</p>
+    <div class="container">
+        <div class="spinner"></div>
+        <p class="message">Redirecting...</p>
+    </div>
+    <script>
+        setTimeout(function() {
+            window.location.href = "{% url 'view_upload' uploaded_file.pk %}";
+        }, 5000); // Redirect after 5 seconds (5000 milliseconds)
+    </script>
+</body>
+</html>
