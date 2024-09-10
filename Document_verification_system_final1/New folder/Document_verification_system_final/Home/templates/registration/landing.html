@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - DocVerify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style type="text/css">
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d9e2ec;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #191970;
+    height: 16vh;
+    padding: 0 20px;
+    color: white;
+}
+
+.navbar .logo h1 {
+    margin: 0;
+}
+
+.navbar .utility-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar .utility-links a:hover {
+    text-decoration: underline;
+}
+
+.large{
+    font-size: 4em;
+}
+
+.large1 {
+    max-width: 1500px
+}
+
+.large1 h2{
+    font-size: 5em;
+}
+
+.intro-text h2 {
+    font-size: 2.5em; /* Example font size for h2 */
+    margin-bottom: 10px; /* Example margin bottom for spacing */
+}
+
+
+.content-container {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210803/pngtree-modern-simple-elegant-abstract-white-background-image_756928.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto; /* Enable vertical scroll if content exceeds container height */
+    height: 64vh; /* Set height to fill remaining viewport after navbar */
+    padding-top: 20px; /* Add padding to top */
+    padding-bottom: 20px;  /*Add padding to bottom */
+    display: flex;
+    justify-content: center; /* Center content horizontally*/ 
+    align-items: center; /* Center content vertically */
+}
+
+.content {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Fallback color for transparency */
+    padding: 20px;
+    text-align: center;
+    color: #333; /* Text color on top of background image */
+}
+
+.footer {
+    background-color: #191970;
+    height: 16vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.about-text {
+
+}
+
+.upload-form {
+    max-width: 600px; /* Example max width for the form */
+    width: 80%; /* Set a percentage width to center the form and maintain responsiveness */
+    background-color: #98AFC7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example shadow effect */
+    margin: 20px auto; /* Center the form horizontally and add margin for spacing */
+}
+
+.upload-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form elements horizontally */
+}
+
+.upload-form input[type="file"] {
+    margin-bottom: 15px;
+}
+
+.upload-form button {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#loading-spinner {
+    font-size: 1.2em;
+    color: lightblue;
+}
+
+#delete-file-button {
+    margin-bottom: 3px;
+
+}
+
+.upload-form button:hover {
+    background-color: #6a1b9a; /* Darker shade of purple on hover */
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>DocVerify</h1>
+        </div>
+        <nav class="utility-links">
+            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'account' %}"><i class="fas fa-user"></i>
+            <span class="tooltiptext">User Account</span>
+            </a>
+        </nav>
+    </header>
+    
+    <div class="content-container">
+        <main class="content">
+            <h1>Welcome</h1>
+            <p>Welcome to DocVerify! Please upload your documents for verification using the form below.</p>
+            <div class="upload-form">
+                <form id="upload-form" action="upload.php" method="POST" enctype="multipart/form-data">
+                    <input type="file" id="file" name="file" required>
+                    <button type="button" id="delete-file-button" style="display: none;">Delete File</button>
+                    <button type="submit" id="upload-button">Upload</button>
+                    <div id="loading-spinner" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Processing...
+            </div>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 DocVerify. All rights reserved. | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a> Student Document Verification
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('file').addEventListener('change', function() {
+            document.getElementById('delete-file-button').style.display = 'block';
+        });
+
+        document.getElementById('delete-file-button').addEventListener('click', function() {
+            document.getElementById('file').value = '';
+            document.getElementById('delete-file-button').style.display = 'none';
+        });
+
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            document.getElementById('upload-button').style.display = 'none';
+            document.getElementById('loading-spinner').style.display = 'block';
+        });
+    </script>
+    
+</body>
+</html>

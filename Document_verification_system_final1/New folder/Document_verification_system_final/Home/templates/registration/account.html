@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account - DocVerify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style type="text/css">
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d9e2ec;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #191970;
+    height: 16vh;
+    padding: 0 20px;
+    color: white;
+}
+
+.navbar .logo h1 {
+    margin: 0;
+}
+
+.navbar .utility-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar .utility-links a:hover {
+    text-decoration: underline;
+}
+
+.large{
+    font-size: 4em;
+}
+
+.large1 {
+    max-width: 1500px
+}
+
+.large1 h2{
+    font-size: 5em;
+}
+
+.intro-text h2 {
+    font-size: 2.5em; /* Example font size for h2 */
+    margin-bottom: 10px; /* Example margin bottom for spacing */
+}
+
+
+.content-container {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210803/pngtree-modern-simple-elegant-abstract-white-background-image_756928.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto; /* Enable vertical scroll if content exceeds container height */
+    height: 64vh; /* Set height to fill remaining viewport after navbar */
+    padding-top: 20px; /* Add padding to top */
+    padding-bottom: 20px;  /*Add padding to bottom */
+    display: flex;
+    justify-content: center; /* Center content horizontally*/ 
+    align-items: center; /* Center content vertically */
+
+    /*max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)*/
+}
+
+.container {
+    max-width: 800px;
+    width: 40%;
+    margin-right: 10px;
+    padding: 50px;
+    background-color: #98AFC7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/*.content {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);*/ /* Fallback color for transparency */
+    /*padding: 5px;*/
+    /*text-align: center;*/
+   /* color: #333;*/ /* Text color on top of background image */
+/*}*/
+
+.footer {
+    background-color: #191970;
+    height: 16vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.about-text {
+
+}
+
+.profile-form {
+    max-width: 420px; /* Example max width for the form */
+    width: 180%; /* Set a percentage width to center the form and maintain responsiveness */
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example shadow effect */
+    }
+
+.profile-form form {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center; /* Center form elements horizontally */
+}
+
+.profile-form label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    font-weight: bold;
+
+}
+
+.profile-form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.profile-form button {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.profile-form button:hover {
+    background-color: #6a1b9a; /* Darker shade of purple on hover */
+}
+
+.h1 {
+    /*margin-left: 0px;*/
+    color: white;
+} 
+
+strong {
+    color: #191970;
+    font-size: 1.2em;
+}   
+.user-detail {
+    margin-bottom: 35px;
+    margin-top: 20px;
+}
+
+.btn-update {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    background-color: purple;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    margin:  0 auto;
+}
+
+    </style>
+
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>DocVerify</h1>
+        </div>
+        <nav class="utility-links">
+            <!-- <a href="#" class="tooltip">
+                <i class="fas fa-user"></i>
+                <span class="tooltiptext">User Account</span>
+            </a> -->
+            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'landing' %}">Back</a>
+        </nav>
+    </header>
+    
+    <div class="content-container">
+        <main class="container">
+            <h1 class="h1">Profile</h1>
+            <div class="user-detail">
+              <label>First Name:</label>
+              <!-- <p> --><strong>{{ user.first_name }}</strong><!-- </p> -->
+            </div>
+            <div class="user-detail">
+              <label>Last Name:</label>
+              <!-- <p> --><strong>{{ user.last_name }}</strong><!-- </p> -->
+            </div>
+            <div class="user-detail">
+              <label>Email Address:</label>
+              <!-- <p> --><strong>{{ user.email }}</strong><!-- </p> -->
+            </div>
+            <div class="user-detail">
+              <label>Username:</label>
+              <!-- <p> --><strong>{{ user.username }}</strong><!-- </p> -->
+            </div>
+                  
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 DocVerify. All rights reserved. | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a> Student Document Verification
+        </p>
+    </footer>
+</body>
+</html>

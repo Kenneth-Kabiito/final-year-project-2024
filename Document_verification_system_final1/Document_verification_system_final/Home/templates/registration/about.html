@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Document Verification Web App</title>
+    <style type="text/css">
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d9e2ec;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #191970;
+    height: 16vh;
+    padding: 0 20px;
+    color: white;
+}
+
+.navbar .logo h1 {
+    margin: 0;
+}
+
+.navbar .utility-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar .utility-links a:hover {
+    text-decoration: underline;
+}
+
+.large{
+    font-size: 4em;
+    margin-top: 350px;
+}
+
+.large1 {
+    max-width: 1500px
+}
+
+.large1 h2{
+    font-size: 5em;
+}
+
+.intro-text h2 {
+    font-size: 2.5em; /* Example font size for h2 */
+    margin-bottom: 10px; /* Example margin bottom for spacing */
+}
+
+
+.content-container {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210803/pngtree-modern-simple-elegant-abstract-white-background-image_756928.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto; /* Enable vertical scroll if content exceeds container height */
+    height: 64vh; /* Set height to fill remaining viewport after navbar */
+    padding-top: 20px; /* Add padding to top */
+    padding-bottom: 20px;  /*Add padding to bottom */
+    display: flex;
+    justify-content: center; /* Center content horizontally*/ 
+    align-items: center; /* Center content vertically */
+}
+
+.content {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Fallback color for transparency */
+    padding: 20px;
+    text-align: center;
+    color: #333; /* Text color on top of background image */
+}
+
+.footer {
+    background-color: #191970;
+    height: 16vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.about-text {
+
+}
+
+.about-title {
+    margin-bottom: 5px; /* Add space between title and content */
+    margin-top: 12px;
+}
+
+.doc {
+    font-size: 2em;
+}
+
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>DocVerify</h1>
+        </div>
+        <nav class="utility-links">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'index' %}">Home</a>
+        </nav>
+    </header>
+    
+    <div class="content-container">
+        <main class="content">
+
+            
+    <div class="about-text">
+            <header class="about-title">
+        <h1 class="large">About Us:</h1>
+            </header>
+        <h2 class="doc"><u>DocVerify</u></h2>
+        
+        <section>
+            <h2>Our Mission</h2>
+            <p>Our mission is to simplify and streamline the verification of student documents while upholding the highest standards of accuracy and security. We aim to empower educational institutions to verify credentials swiftly, employers to make informed hiring decisions, and students to confidently present their achievements.</p>
+        </section>
+        
+        <section>
+            <h2>Vision</h2>
+            <p>We envision a future where document verification is seamless, accessible, and trustworthy, fostering global educational and professional mobility with confidence in verified credentials.</p>
+        </section>
+        
+        <section>
+            <h2>What We Do</h2>
+            <p>The Student Document Verification System offers a comprehensive suite of features designed to cater to the needs of various stakeholders:</p>
+            <ul>
+                <li>User Registration and Authentication</li>
+                <li>Role-based Access Control</li>
+                <li>Document Upload and Verification</li>
+                <li>Administrative Tools</li>
+                <li>Security and Compliance</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>How We Ensure Accuracy</h2>
+            <p>Our use of machine learning algorithms, including the Random Forest algorithm, enhances the accuracy of document verification by analyzing patterns and discrepancies between uploaded documents and trusted records. Continuous improvement and updates based on feedback and emerging technologies ensure our system remains reliable and efficient.</p>
+        </section>
+        
+        <section>
+            <h2>Benefits of Using Our System</h2>
+            <p>Our system offers efficiency, reliability, accessibility, and compliance, setting new standards in document verification and fostering trust and transparency in academic and professional credentials worldwide.</p>
+        </section>
+        
+        <section>
+            <h2>Our Commitment to Excellence</h2>
+            <p>At the Student Document Verification System, we are committed to excellence in every aspect of our operations. By combining cutting-edge technology with a user-centric approach, we strive to innovate continuously and meet the evolving needs of our users and stakeholders.</p>
+        </section>
+    </div>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 DocVerify. All rights reserved. | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a> Student Document Verification
+        </p>
+    </footer>
+</body>
+</html>

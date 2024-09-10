@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - DocVerify</title>
+    <style type="text/css">
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d9e2ec;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #191970;
+    height: 16vh;
+    padding: 0 20px;
+    color: white;
+}
+
+.navbar .logo h1 {
+    margin: 0;
+}
+
+.navbar .utility-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar .utility-links a:hover {
+    text-decoration: underline;
+}
+
+.large{
+    font-size: 4em;
+}
+
+.large1 {
+    max-width: 1500px
+}
+
+.large1 h2{
+    font-size: 5em;
+}
+
+.intro-text h2 {
+    font-size: 2.5em; /* Example font size for h2 */
+    margin-bottom: 10px; /* Example margin bottom for spacing */
+}
+
+
+.content-container {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210803/pngtree-modern-simple-elegant-abstract-white-background-image_756928.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto; /* Enable vertical scroll if content exceeds container height */
+    height: 64vh; /* Set height to fill remaining viewport after navbar */
+    padding-top: 20px; /* Add padding to top */
+    padding-bottom: 20px;  /*Add padding to bottom */
+    display: flex;
+    justify-content: center; /* Center content horizontally*/ 
+    align-items: center; /* Center content vertically */
+}
+
+.content {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Fallback color for transparency */
+    padding: 20px;
+    text-align: center;
+    color: #333; /* Text color on top of background image */
+}
+
+.one {
+    margin-bottom: 10px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.footer {
+    background-color: #191970;
+    height: 16vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.about-text {
+
+}
+
+.register-form {
+    max-width: 480px; /* Increase the max-width to make the form wider */
+    max-height: 100vh;
+    height: 100%;
+    width: 180%; /* Set a percentage width to center the form and maintain responsiveness */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Example shadow effect */
+    margin-left: 10px;
+}
+
+.register-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form label {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password1"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.register-form button {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 20px 20px;
+    margin-bottom: 2px;
+    margin-top: 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.register-form button:hover {
+    background-color: #6a1b9a; /* Darker shade of purple on hover */
+}
+
+h1 {
+    font-size: 2.5em; /* Example font size for h1 */
+    margin-bottom: 20px; /* Example margin bottom for spacing */
+    margin-left: 40px;
+}
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>DocVerify</h1>
+        </div>
+        <nav class="utility-links">
+            <!-- <a href="{% url 'account' %}"><i class="fas fa-user"></i>
+            <span class="tooltiptext">User Account</span>
+            </a> -->
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'index' %}">Home</a>
+
+        </nav>
+    </header>
+    
+    <div class="content-container">
+        <main class="content">
+            <h1>REGISTER</h1>
+            <div class="register-form">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <!--  -->
+                    <!-- <label for="first_name">First Name *</label>
+                    <input type="text" id="first_name" name="first_name" required> -->
+                    <label for="{{ form.first_name.id_for_label }}">First Name *</label>
+                     {{ form.first_name }}
+
+                    <<!-- label for="last_name">Last Name *</label>
+                    <input type="text" id="last_name" name="lastname" required> -->
+                    
+                    <label for="{{ form.last_name.id_for_label }}">Last Name *</label>
+                     {{ form.last_name }}
+
+                    
+                    <<!-- label for="middle_name">Middle Name</label>
+                    <input type="text" id="middle_name" name="middle_name"> -->
+
+                    <!-- <label for="{{ form.middle_name.id_for_label }}">Middle Name</label>
+                     {{ form.middle_name }}
+ -->
+                    <!-- <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required> -->
+
+                    <label for="{{ form.email.id_for_label }}">Email Address *</label>
+                     {{ form.email }}
+
+                     <!-- <label for="user_name">Username *</label>
+                    <input type="text" id="user_name" name="user_name" required> -->
+
+                    <label for="{{ form.user_name.id_for_label }}">Username *</label>
+                    {{ form.username }}
+                    <!-- <input type="text" id="email" name="user_name" required> --> -->
+
+                    <!-- <label for="password1">Password *</label>
+                    <input type="password" id="password1" name="password1" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$" title="Password must contain at least 8 characters, including at least one lowercase letter, one uppercase letter, one number, and one special character." required> -->
+
+                    <label for="{{ form.password1.id_for_label }}">Password *</label>
+                      {{ form.password1 }}
+
+                    
+                    <label for="{{ form.password2.id_for_label }}">Confirm Password *</label>
+                    {{ form.password2 }}
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 DocVerify. All rights reserved. | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a> Student Document Verification
+        </p>
+    </footer>
+</body>
+</html>
